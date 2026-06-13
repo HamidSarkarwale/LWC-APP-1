@@ -1,0 +1,38 @@
+<template>
+    <lightning-card title="Account Manager Apex">
+        <lightning-input type="number" label="Number of Accounts" value={numberOfAccounts} onchange={handleInputChange}></lightning-input>
+        <lightning-button variant="brand" label="Get Accounts" onclick={getAccounts}></lightning-button>
+        <template if:true={accounts}>
+            <lightning-tile label="Retrieved Salesforce Account Details">
+                    <p class="slds-truncate" title="Members count">{size} Members</p>
+            </lightning-tile>
+            <template for:each={accounts} for:item="account">
+                <div key={account.Id} class="slds-p-around_medium lgc-bg">
+                    <ul class="slds-has-dividers_bottom-space">
+                        <li class="slds-item">
+                            <lightning-tile label="Salesforce UX" >
+                                <dl class="slds-dl_horizontal">
+                                    <dt class="slds-dl_horizontal__label">
+                                        <p class="slds-truncate" title="Name">Name:</p>
+                                    </dt>
+                                    <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                                        <p class="slds-truncate" title="Account Name">{account.Name}</p>
+                                    </dd>
+                                    <dt class="slds-dl_horizontal__label">
+                                        <p class="slds-truncate" title="Phone">Phone:</p>
+                                    </dt>
+                                    <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                                        <p class="slds-truncate" title="123-456-7890">{account.Phone}</p>
+                                    </dd>
+                                </dl>
+                            </lightning-tile>
+                        </li>
+                    </ul>
+                </div>
+            </template>
+        </template>
+        <template if:true={error}>
+            <p class="slds-text-color_error">{error}</p>
+        </template>
+    </lightning-card>
+</template>

@@ -11,7 +11,9 @@ export default class MeetingRoom extends LightningElement {
 
     tileClickHandler()
     {
+        console.log('Tile Clicked');
         const titleClicked = new CustomEvent('titleclick', {detail: this.meetingRoomInfo, bubbles:true});
+        // console.log('Tile Clicked: ' + JSON.stringify(this.meetingRoomInfo));
 
         this.dispatchEvent(titleClicked);
         fireEvent(this.pageReference, 'pubsubtileclick', this.meetingRoomInfo);

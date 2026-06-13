@@ -1,0 +1,24 @@
+<template>
+    <lightning-card title="Account Manager with Lightning Data Service">
+        <lightning-layout>
+            <lightning-layout-item size="6">
+                <lightning-input label="Account Name"  onchange={handleAccountNameChange}></lightning-input>
+                <lightning-input label="Account Phone" type="phone"  onchange={handleAccountPhoneChange}></lightning-input>
+                <lightning-input label="Account url" type="url" onchange={handleAccounturlChange}></lightning-input>
+                <lightning-button label="Save Account" onclick={handleSaveAccount}></lightning-button>
+                <p>Created Account Id: {AccountId} </p>
+            </lightning-layout-item>
+
+            <lightning-layout-item size="6" padding="around-small">
+                <lightning-card title="view Created Account Details">   
+                    <p>Account Name: <lightning-formatted-text value={name}></lightning-formatted-text></p>
+                    <p>Phone: <lightning-formatted-phone value={phone}></lightning-formatted-phone></p>
+                    <p>Website: <lightning-formatted-url value={website}></lightning-formatted-url></p>
+                </lightning-card>
+
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+
+
+</template>
